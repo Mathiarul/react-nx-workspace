@@ -1,0 +1,119 @@
+.profilePage {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.profilePage h1 {
+  margin: 0 0 2rem 0;
+}
+
+.profileContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.profileCard {
+  padding: 2rem;
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.avatarSection h2 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.75rem;
+}
+
+.role {
+  margin: 0;
+  color: #666;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
+.infoSection {
+  padding: 2rem 0;
+}
+
+.infoSection h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.infoItem label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.infoItem p {
+  margin: 0;
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.ordersCard {
+  padding: 2rem;
+}
+
+.ordersCard h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.emptyMessage {
+  color: #666;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .profileContent {
+    grid-template-columns: 1fr;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+

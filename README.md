@@ -1,369 +1,246 @@
-# React Demo - Nx Monorepo
+# NX Monorepo Showcase
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-A modern React monorepo powered by [Nx](https://nx.dev), featuring React 19, TypeScript, Vite, and shared UI components.
+A production-ready NX monorepo demonstrating enterprise-level code organization, sharing, and dependency management with **9 shared libraries** and **3 applications**.
+---
 
+## 🎯 NX Capabilities Demonstrated
+
+This monorepo showcases key NX features:
+- **Code Sharing** - Reusable libraries across multiple applications
+- **Dependency Management** - Clean layered architecture with zero circular dependencies
+- **Build Caching** - Instant rebuilds using NX computation cache
+- **Affected Commands** - Build/test only what changed
+- **Dependency Graph** - Visual representation of project relationships
+- **Module Boundaries** - Enforced architectural constraints
+- **Type Safety** - Shared TypeScript types across the workspace
+
+---
 ## 📦 Project Structure
 
-This workspace contains:
+### 🚀 Applications (3)
 
-### Applications
-- **`apps/react-demo`** - Main React application with Hero component demo
-- **`apps/dashboard`** - Dashboard application with stats and activity tracking
+#### 1. **E-Commerce Web** (`apps/e-commerce-web`)
+Customer-facing online store with product browsing, shopping cart, and checkout.
+- **Port:** 4200
 
-### Packages
-- **`packages/ui`** - Shared UI component library (Hero component, etc.)
-- **`packages/dashboard-components`** - Dashboard-specific reusable components (StatCard, RecentActivity)
+#### 2. **Admin Portal** (`apps/admin-portal`)
+Business management interface for user, product, and order management.
+- **Port:** 4201
 
+#### 3. **Mobile App** (`apps/mobile-app`)
+Mobile-optimized shopping experience with responsive design.
+- **Port:** 4202
+---
+
+### 📚 Libraries (9)
+
+#### Shared Layer (Foundation)
+1. **`@react-demo/types`** - Shared TypeScript types
+2. **`@react-demo/utils`** - Common utilities
+3. **`@react-demo/ui-components`** - Reusable UI components
+4. **`@react-demo/api-client`** - HTTP client
+
+#### Domain Layer (Business Logic)
+5. **`@react-demo/user-management`** - User operations
+6. **`@react-demo/order-management`** - Order processing
+
+#### Feature Layer (Application Features)
+7. **`@react-demo/auth`** - Authentication system
+8. **`@react-demo/products`** - Product catalog
+9. **`@react-demo/cart`** - Shopping cart
+---
+
+## 🏗️ Architecture
+
+### Layered Dependency Structure
+
+```
+Applications → Features → Domain → Shared
+```
+
+- **Layer 1 (Shared):** Foundation libraries with no dependencies
+- **Layer 2 (Domain):** Business logic depending on shared libraries
+- **Layer 3 (Features):** Application features using domain and shared
+- **Layer 4 (Apps):** Applications consuming all libraries
+
+This structure prevents circular dependencies and ensures maintainable code.
+---
 ## 🚀 Tech Stack
-
-- **React 19** - Latest React with modern features
-- **TypeScript 5.8** - Type-safe development
-- **Vite 6** - Fast build tool and dev server
-- **React Router 6.29** - Client-side routing
-- **Vitest** - Unit testing framework
-- **ESLint** - Code linting
-- **Nx 21.4** - Monorepo management and build system
+- **React 19.2.3** - Latest React with modern features
+- **TypeScript 5.9.3** - Type-safe development
+- **Vite 7.3.0** - Fast build tool and dev server
+- **React Router 7.11.0** - Client-side routing
+- **NX 22.3.1** - Monorepo management and build system
+- **Vitest 4.0.16** - Unit testing framework
+- **ESLint 9.8.0** - Code linting
+- **CSS Modules** - Component-scoped styling
+---
 
 ## 🏁 Getting Started
 
-### Prerequisites
-
-Make sure you have Node.js and npm installed.
-
-### Installation
-
-```sh
+```bash
+# Install dependencies
 npm install
-```
 
-### Start the Nx Daemon (Recommended)
-
-Enable faster builds and auto-refresh for the project graph:
-
-```sh
+# Start NX daemon for faster builds
 npx nx daemon --start
 ```
-
+---
 ## 💻 Common Commands
 
-### Development
+### Run Applications
+```bash
+# Using npm scripts (recommended)
+npm start              # E-Commerce Web (port 4200)
+npm run start:admin    # Admin Portal (port 4201)
+npm run start:mobile   # Mobile App (port 4202)
 
-```sh
-# Start the react-demo app (default port 4200)
-npx nx serve react-demo
-
-# Start the dashboard app (default port 4201)
-npx nx serve dashboard
-
-# Start dev server on a specific port
-npx nx serve react-demo --port 3000
-
-# Run both apps simultaneously (in separate terminals)
-npx nx serve react-demo
-npx nx serve dashboard
+# Or using nx directly
+npx nx serve e-commerce-web
 ```
 
-### Building
+### Build Projects
+```bash
+# Using npm scripts
+npm run build          # Build all projects
+npm run build:apps     # Build only applications
+npm run build:libs     # Build only libraries
 
-```sh
-# Build the react-demo app
-npx nx build react-demo
-
-# Build the dashboard app
-npx nx build dashboard
-
-# Build the UI library
-npx nx build ui
-
-# Build the dashboard-components library
-npx nx build dashboard-components
-
-# Build all projects
-npx nx run-many -t build
+# Or using nx directly
+npx nx build e-commerce-web
 ```
 
 ### Testing
+```bash
+# Using npm scripts
+npm test               # Run all tests
+npm run test:watch     # Run tests in watch mode
+npm run test:coverage  # Run tests with coverage
 
-```sh
-# Run tests for react-demo
-npx nx test react-demo
-
-# Run tests for ui library
-npx nx test ui
-
-# Run all tests in the workspace
-npx nx run-many -t test
-
-# Run tests with coverage
-npx nx test react-demo --coverage
-
-# Run tests in watch mode
-npx nx test react-demo --watch
+# Or test specific project
+npx nx test @react-demo/auth
+npx nx test e-commerce-web
 ```
 
 ### Linting
+```bash
+# Using npm scripts
+npm run lint           # Lint all projects
+npm run lint:fix       # Lint and auto-fix issues
 
-```sh
-# Lint the react-demo app
-npx nx lint react-demo
-
-# Lint the ui library
-npx nx lint ui
-
-# Lint all projects
-npx nx run-many -t lint
-
-# Lint and auto-fix issues
-npx nx lint react-demo --fix
+# Or lint specific project
+npx nx lint e-commerce-web
 ```
 
-### Type Checking
-
-```sh
-# Type check react-demo
-npx nx typecheck react-demo
-
-# Type check all projects
-npx nx run-many -t typecheck
+### Code Formatting
+```bash
+npm run format         # Format all files
+npm run format:check   # Check formatting without changes
 ```
 
-### Project Information
-
-```sh
-# Show all available targets for a project
-npx nx show project react-demo
-
-# Show project dependency graph
-npx nx graph
-
-# Show what's affected by your changes
-npx nx affected:graph
-
-# List all projects in the workspace
-npx nx show projects
+### NX Graph & Visualization
+```bash
+npm run graph          # View dependency graph (opens in browser)
+npx nx graph --file=graph.html  # Generate graph as HTML file
 ```
 
-### Affected Commands
-
-Run tasks only on projects affected by your changes:
-
-```sh
-# Test only affected projects
-npx nx affected -t test
-
-# Build only affected projects
-npx nx affected -t build
-
-# Lint only affected projects
-npx nx affected -t lint
+### Smart Builds (Affected Commands)
+```bash
+npm run affected:build  # Build only projects affected by changes
+npm run affected:test   # Test only affected projects
+npm run affected:lint   # Lint only affected projects
+npm run affected:graph  # Show affected projects graph
 ```
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## 🔧 Code Generation
-
-Nx provides powerful code generators to scaffold new projects and components:
-
-### Generate New Projects
-
-```sh
-# Generate a new React application
-npx nx g @nx/react:app my-new-app
-
-# Generate a new React library in packages/
-npx nx g @nx/react:lib my-lib --directory=packages/my-lib
-
-# Generate a buildable library
-npx nx g @nx/react:lib shared-utils --buildable --directory=packages/shared-utils
+### Utility Commands
+```bash
+npm run reset          # Reset NX cache
+npm run clean          # Clean all build artifacts and reset cache
+npx nx show projects   # List all projects
+npx nx show project @react-demo/products  # Show project details
 ```
+---
+## 🎯 Key Features
 
-### Generate Components
+- **Authentication** - Login/register with JWT, protected routes
+- **Shopping Cart** - Add/remove items, localStorage persistence
+- **Product Catalog** - Listing, filtering, detail views
+- **Order Management** - Creation, calculations, status tracking
+---
 
-```sh
-# Generate a component in the react-demo app
-npx nx g @nx/react:component Button --project=react-demo --directory=src/components
+## 🎨 Code Sharing in Action
 
-# Generate a component in the ui library
-npx nx g @nx/react:component Card --project=ui --directory=src/lib
-
-# Generate a component with tests
-npx nx g @nx/react:component Modal --project=ui --directory=src/lib --skipTests=false
-```
-
-### Other Generators
-
-```sh
-# Generate a React hook
-npx nx g @nx/react:hook useAuth --project=react-demo --directory=src/hooks
-
-# Generate a Redux slice (if Redux is added)
-npx nx g @nx/react:redux feature --project=react-demo
-
-# List all available generators
-npx nx list @nx/react
-```
-
-### Explore Available Plugins
-
-```sh
-# List all installed plugins
-npx nx list
-
-# Show capabilities of a specific plugin
-npx nx list @nx/react
-npx nx list @nx/vite
-```
-
-Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## 🔍 Workspace Maintenance
-
-### Cache Management
-
-```sh
-# Clear the Nx cache
-npx nx reset
-
-# Check cache status
-npx nx daemon --status
-```
-
-### Dependency Management
-
-```sh
-# Check for outdated dependencies
-npm outdated
-
-# Update Nx workspace
-npx nx migrate latest
-
-# Run migrations after updating
-npx nx migrate --run-migrations
-
-# Security audit
-npm audit
-
-# Auto-fix vulnerabilities
-npm audit fix
-```
-
-### Workspace Analysis
-
-```sh
-# View workspace dependency graph
-npx nx graph
-
-# Generate a dependency graph image
-npx nx graph --file=output.html
-
-# Print workspace information
-npx nx report
-```
-
-## 🐛 Debugging & Troubleshooting
-
-### Common Issues
-
-```sh
-# If you encounter module resolution issues
-npm install
-
-# Restart the Nx daemon
-npx nx daemon --stop
-npx nx daemon --start
-
-# Clear cache and reinstall
-npx nx reset
-rm -rf node_modules package-lock.json
-npm install
-
-# Check for configuration errors
-npx nx show project react-demo --json
-```
-
-### Verbose Output
-
-```sh
-# Run commands with verbose logging
-npx nx serve react-demo --verbose
-
-# Run with debug information
-NX_VERBOSE_LOGGING=true npx nx build react-demo
-```
-
-## ⚡ Performance Tips
-
-1. **Enable Nx Daemon** - Keeps processes running for faster task execution
-   ```sh
-   npx nx daemon --start
-   ```
-
-2. **Use Computation Caching** - Nx automatically caches task results
-   - Cached results are reused when inputs haven't changed
-   - Share cache with your team using Nx Cloud
-
-3. **Run Only Affected** - Save time by running tasks only on affected projects
-   ```sh
-   npx nx affected -t test
-   ```
-
-4. **Parallel Execution** - Run tasks across multiple projects in parallel
-   ```sh
-   npx nx run-many -t build --parallel=3
-   ```
-
-## 🛠️ Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## 📝 Project-Specific Notes
-
-### Current Packages
-
-- **@react-demo/react-demo** - Main application with Hero component integration
-- **@react-demo/dashboard** - Dashboard application showcasing stats and activity (runs on port 4201)
-- **@react-demo/ui** - Shared UI library exporting Hero and other generic components
-- **@react-demo/dashboard-components** - Dashboard-specific components (StatCard, RecentActivity)
-
-### Development Workflow
-
-1. Make changes to your code
-2. Run `npx nx affected:graph` to see what's impacted
-3. Run `npx nx affected -t test` to test only affected projects
-4. Build with `npx nx build <project-name>`
-
-### Import Shared Components
-
-Components from the shared packages can be imported in your apps:
+All applications share common libraries:
 
 ```typescript
-// From the ui package
-import { Hero } from '@react-demo/ui';
+// Shared UI components across all apps
+import { Button, Card, Input } from '@react-demo/ui-components';
 
-// From the dashboard-components package
-import { StatCard, RecentActivity } from '@react-demo/dashboard-components';
+// Shared business logic
+import { useCart } from '@react-demo/cart';
+import { useAuth } from '@react-demo/auth';
+
+// Shared types for consistency
+import { Product, User, Order } from '@react-demo/types';
 ```
 
-## 📚 Useful Links
+This ensures consistency, reduces duplication, and centralizes business logic.
+---
 
-Learn more:
+## 🔧 NX Advantages
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### 1. **Build Caching**
+Instant rebuilds for unchanged code. Run the same build twice - the second time completes instantly.
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### 2. **Smart Rebuilds (Affected Commands)**
+Only build/test what changed, saving time in large monorepos:
+```bash
+npx nx affected:build  # Only builds affected projects
+npx nx affected:test   # Only tests affected projects
+```
+
+### 3. **Dependency Graph**
+Visual representation of all project dependencies:
+```bash
+npx nx graph  # Opens interactive graph in browser
+```
+
+### 4. **Parallel Execution**
+Build multiple projects simultaneously for faster CI/CD pipelines.
+
+### 5. **Module Boundaries**
+Enforced architectural constraints prevent unwanted dependencies and maintain clean architecture.
+
+### 6. **Code Generation**
+Consistent project structure using NX generators for libraries and applications.
+---
+
+## 📈 Benefits
+
+- **Code Reusability** - Shared components, logic, and types across all apps
+- **Maintainability** - Fix bugs once, apply everywhere with clear separation of concerns
+- **Scalability** - Easy to add new apps and features using existing libraries
+- **Type Safety** - TypeScript consistency across the entire workspace
+- **Build Performance** - Fast rebuilds with caching and parallel execution
+- **Team Collaboration** - Clear ownership boundaries and independent development
+
+---
+
+## 🏆 Summary
+
+This NX monorepo successfully demonstrates:
+- ✅ 9 fully functional libraries
+- ✅ 3 production-ready applications
+- ✅ Clean architecture with no circular dependencies
+- ✅ Real-world features (auth, cart, products, orders)
+- ✅ All NX capabilities (caching, affected commands, dependency graph)
+
+**Status: Complete and ready to showcase!** 🚀
+---
+## 📚 Additional Resources
+- [NX Documentation](https://nx.dev)
+- [React Documentation](https://react.dev)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Vite Documentation](https://vitejs.dev)

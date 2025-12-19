@@ -9,6 +9,10 @@ export default [
       '**/dist',
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
+      '**/test-output',
+      '**/static/**',
+      '**/graph.html',
+      '**/.nx/**',
     ],
   },
   {
