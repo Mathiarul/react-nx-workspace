@@ -60,7 +60,11 @@
     }
   ],
   "targetDefaults": {
+    "build": {
+      "cache": true
+    },
     "test": {
+      "cache": true,
       "dependsOn": ["^build"]
     }
   },

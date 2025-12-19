@@ -8,6 +8,12 @@
     },
     {
       "path": "./packages/ui"
+    },
+    {
+      "path": "./apps/dashboard"
+    },
+    {
+      "path": "./packages/dashboard-components"
     }
   ]
 }
