@@ -1,7 +1,9 @@
-import { userManagement } from './user-management.js';
+import { UserService } from './user-management.js';
 
 describe('userManagement', () => {
-  it('should work', () => {
-    expect(userManagement()).toEqual('user-management');
+  it('should export UserService', () => {
+    expect(UserService).toBeDefined();
+    const service = new UserService();
+    expect(service).toBeDefined();
   });
 });

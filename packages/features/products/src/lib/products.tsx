@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Product, ProductCategory, ApiResponse, PaginatedResponse } from '@react-demo/types';
 import { apiClient } from '@react-demo/api-client';
 import { formatCurrency, truncate } from '@react-demo/utils';

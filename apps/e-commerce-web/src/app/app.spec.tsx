@@ -14,14 +14,11 @@ describe('App', () => {
   });
 
   it('should have a greeting as the title', () => {
-    const { getAllByText } = render(
+    const { getByText } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
     );
-    expect(
-      getAllByText(new RegExp('Welcome to E-Commerce', 'gi'))
-        .length > 0
-    ).toBeTruthy();
+    expect(getByText(/Welcome to E-Commerce/i)).toBeTruthy();
   });
 });

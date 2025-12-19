@@ -4,7 +4,11 @@ import ReactDemoCart from './cart';
 
 describe('ReactDemoCart', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ReactDemoCart />);
+    const { baseElement } = render(
+      <ReactDemoCart>
+        <div>Test Child</div>
+      </ReactDemoCart>
+    );
     expect(baseElement).toBeTruthy();
   });
 });

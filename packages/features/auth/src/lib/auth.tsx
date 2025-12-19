@@ -267,7 +267,7 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
           type="text"
           placeholder="First Name"
           value={formData.firstName}
-          onChange={(e) => updateField('firstName', e.target.value)}
+          onChange={(e) => updateField('firstName', (e.target as HTMLInputElement).value)}
           disabled={isLoading}
           required
         />
@@ -275,7 +275,7 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
           type="text"
           placeholder="Last Name"
           value={formData.lastName}
-          onChange={(e) => updateField('lastName', e.target.value)}
+          onChange={(e) => updateField('lastName', (e.target as HTMLInputElement).value)}
           disabled={isLoading}
           required
         />
@@ -283,7 +283,7 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
           type="email"
           placeholder="Email"
           value={formData.email}
-          onChange={(e) => updateField('email', e.target.value)}
+          onChange={(e) => updateField('email', (e.target as HTMLInputElement).value)}
           disabled={isLoading}
           required
         />
@@ -291,7 +291,7 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
           type="password"
           placeholder="Password"
           value={formData.password}
-          onChange={(e) => updateField('password', e.target.value)}
+          onChange={(e) => updateField('password', (e.target as HTMLInputElement).value)}
           disabled={isLoading}
           required
         />
@@ -299,7 +299,7 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
           type="password"
           placeholder="Confirm Password"
           value={formData.confirmPassword}
-          onChange={(e) => updateField('confirmPassword', e.target.value)}
+          onChange={(e) => updateField('confirmPassword', (e.target as HTMLInputElement).value)}
           disabled={isLoading}
           required
         />
