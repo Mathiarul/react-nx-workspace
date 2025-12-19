@@ -82,84 +82,84 @@ This structure prevents circular dependencies and ensures maintainable code.
 
 ```bash
 # Install dependencies
-npm install
+yarn install
 
 # Start NX daemon for faster builds
-npx nx daemon --start
+yarn nx daemon --start
 ```
 ---
 ## 💻 Common Commands
 
 ### Run Applications
 ```bash
-# Using npm scripts (recommended)
-npm start              # E-Commerce Web (port 4200)
-npm run start:admin    # Admin Portal (port 4201)
-npm run start:mobile   # Mobile App (port 4202)
+# Using yarn scripts (recommended)
+yarn start              # E-Commerce Web (port 4200)
+yarn start:admin    # Admin Portal (port 4201)
+yarn start:mobile   # Mobile App (port 4202)
 
 # Or using nx directly
-npx nx serve e-commerce-web
+yarn nx serve e-commerce-web
 ```
 
 ### Build Projects
 ```bash
-# Using npm scripts
-npm run build          # Build all projects
-npm run build:apps     # Build only applications
-npm run build:libs     # Build only libraries
+# Using yarn scripts
+yarn build          # Build all projects
+yarn build:apps     # Build only applications
+yarn build:libs     # Build only libraries
 
 # Or using nx directly
-npx nx build e-commerce-web
+yarn nx build e-commerce-web
 ```
 
 ### Testing
 ```bash
-# Using npm scripts
-npm test               # Run all tests
-npm run test:watch     # Run tests in watch mode
-npm run test:coverage  # Run tests with coverage
+# Using yarn scripts
+yarn test               # Run all tests
+yarn test:watch     # Run tests in watch mode
+yarn test:coverage  # Run tests with coverage
 
 # Or test specific project
-npx nx test @react-demo/auth
-npx nx test e-commerce-web
+yarn nx test @react-demo/auth
+yarn nx test e-commerce-web
 ```
 
 ### Linting
 ```bash
-# Using npm scripts
-npm run lint           # Lint all projects
-npm run lint:fix       # Lint and auto-fix issues
+# Using yarn scripts
+yarn lint           # Lint all projects
+yarn lint:fix       # Lint and auto-fix issues
 
 # Or lint specific project
-npx nx lint e-commerce-web
+yarn nx lint e-commerce-web
 ```
 
 ### Code Formatting
 ```bash
-npm run format         # Format all files
-npm run format:check   # Check formatting without changes
+yarn format         # Format all files
+yarn format:check   # Check formatting without changes
 ```
 
 ### NX Graph & Visualization
 ```bash
-npm run graph          # View dependency graph (opens in browser)
-npx nx graph --file=graph.html  # Generate graph as HTML file
+yarn graph          # View dependency graph (opens in browser)
+yarn nx graph --file=graph.html  # Generate graph as HTML file
 ```
 
 ### Smart Builds (Affected Commands)
 ```bash
-npm run affected:build  # Build only projects affected by changes
-npm run affected:test   # Test only affected projects
-npm run affected:lint   # Lint only affected projects
-npm run affected:graph  # Show affected projects graph
+yarn affected:build  # Build only projects affected by changes
+yarn affected:test   # Test only affected projects
+yarn affected:lint   # Lint only affected projects
+yarn affected:graph  # Show affected projects graph
 ```
 
 ### Utility Commands
 ```bash
-npm run reset          # Reset NX cache
-npm run clean          # Clean all build artifacts and reset cache
-npx nx show projects   # List all projects
-npx nx show project @react-demo/products  # Show project details
+yarn reset          # Reset NX cache
+yarn clean          # Clean all build artifacts and reset cache
+yarn nx show projects   # List all projects
+yarn nx show project @react-demo/products  # Show project details
 ```
 ---
 ## 🎯 Key Features
@@ -197,14 +197,14 @@ Instant rebuilds for unchanged code. Run the same build twice - the second time 
 ### 2. **Smart Rebuilds (Affected Commands)**
 Only build/test what changed, saving time in large monorepos:
 ```bash
-npx nx affected:build  # Only builds affected projects
-npx nx affected:test   # Only tests affected projects
+yarn nx affected:build  # Only builds affected projects
+yarn nx affected:test   # Only tests affected projects
 ```
 
 ### 3. **Dependency Graph**
 Visual representation of all project dependencies:
 ```bash
-npx nx graph  # Opens interactive graph in browser
+yarn nx graph  # Opens interactive graph in browser
 ```
 
 ### 4. **Parallel Execution**
