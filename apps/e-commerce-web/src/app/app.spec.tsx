@@ -20,7 +20,7 @@ describe('App', () => {
       </BrowserRouter>
     );
     expect(
-      getAllByText(new RegExp('Welcome @react-demo/e-commerce-web', 'gi'))
+      getAllByText(new RegExp('Welcome to E-Commerce', 'gi'))
         .length > 0
     ).toBeTruthy();
   });

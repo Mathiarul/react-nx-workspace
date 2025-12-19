@@ -9,6 +9,7 @@
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2020", "DOM"],
     "types": ["node", "vite/client"]
   },
   "include": ["src/**/*.ts"],
