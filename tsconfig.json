@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./apps/react-demo"
+    },
+    {
+      "path": "./packages/ui"
     }
   ]
 }
