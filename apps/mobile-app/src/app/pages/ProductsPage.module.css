@@ -1,0 +1,30 @@
+.page {
+  padding: 15px 10px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+

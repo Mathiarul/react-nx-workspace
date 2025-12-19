@@ -1,0 +1,62 @@
+.analyticsPage {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #1a1a1a;
+}
+
+.header p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.placeholderCard {
+  max-width: 600px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.placeholderIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.placeholderCard h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+}
+
+.placeholderCard p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .analyticsPage {
+    padding: 1rem;
+  }
+
+  .placeholderCard {
+    padding: 2rem 1rem;
+  }
+}
+

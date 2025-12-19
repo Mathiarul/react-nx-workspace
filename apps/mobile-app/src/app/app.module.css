@@ -1,0 +1,15 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 70px; /* Space for bottom nav */
+}
+
+.main {
+  flex: 1;
+  padding: 10px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+

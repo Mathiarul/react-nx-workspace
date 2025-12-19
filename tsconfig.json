@@ -4,7 +4,43 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/react-demo"
+      "path": "./packages/shared/types"
+    },
+    {
+      "path": "./packages/shared/utils"
+    },
+    {
+      "path": "./packages/shared/ui-components"
+    },
+    {
+      "path": "./packages/shared/api-client"
+    },
+    {
+      "path": "./packages/domain/user-management"
+    },
+    {
+      "path": "./packages/domain/order-management"
+    },
+    {
+      "path": "./packages/features/auth"
+    },
+    {
+      "path": "./packages/features/products"
+    },
+    {
+      "path": "./packages/features/cart"
+    },
+    {
+      "path": "./apps/e-commerce-web"
+    },
+    {
+      "path": "./apps/admin-portal"
+    },
+    {
+      "path": "./apps/mobile-app"
+    },
+    {
+      "path": "./apps/e-commerce-web-e2e"
     }
   ]
 }

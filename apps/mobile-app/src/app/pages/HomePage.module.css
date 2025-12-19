@@ -1,0 +1,104 @@
+.page {
+  padding: 20px 10px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+.subtitle {
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.categories {
+  margin-bottom: 30px;
+}
+
+.categoryGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.categoryCard {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.categoryCard:active {
+  transform: scale(0.95);
+}
+
+.categoryEmoji {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.categoryName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.features {
+  margin-bottom: 30px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.feature {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.featureIcon {
+  font-size: 32px;
+}
+
+.feature h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
